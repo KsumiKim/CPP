@@ -1,0 +1,7 @@
+SOCKADDR_IN my_addr;
+		int len = sizeof(my_addr);
+		getsockname(new_socket, (SOCKADDR*)& my_addr, &len);
+		char ipstr[INET_ADDRSTRLEN];
+		inet_ntop(AF_INET,&my_addr.sin_addr, ipstr, sizeof(ipstr));
+		printf("%s", ipstr);
+		printf("%d", my_addr.sin_port);
